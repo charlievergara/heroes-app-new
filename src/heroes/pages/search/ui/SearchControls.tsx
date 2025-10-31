@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Accordion, AccordionContent, AccordionItem } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Slider } from '@/components/ui/slider'
@@ -43,7 +43,7 @@ export const SearchControls = () => {
     }
 
     setSearchParams((prev)=>{
-      prev.set('toggle-filters', item)
+      prev.set('toggle-filters', showAdvanceFilters)
       return prev
     })
   }

@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import SearchPage from "./SearchPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -59,19 +59,19 @@ describe('SearchPage', () => {
      })
 
      test('should query hook with name parameter', () => { 
-        const {container} = renderPage(['/search?search=superman'])
+        renderPage(['/search?search=superman'])
         expect(mockedUseSearchResuls).toHaveBeenCalledWith({name:'superman', strength:undefined})
         
     })
      test('should query hook with strength parameter', () => { 
-        const {container} = renderPage(['/search?strength=6'])
+        renderPage(['/search?strength=6'])
         expect(mockedUseSearchResuls).toHaveBeenCalledWith({name:'', strength:"6"})  
     })
 
     test('should render heroGrid with search Results', () => { 
-        const {container} = renderPage()
+        renderPage()
             
-        const heroGrid = screen.getByTestId('hero-grid')
+        // const heroGrid = screen.getByTestId('hero-grid')
         expect(screen.getByText('Carlos Kent')).toBeDefined()
      })
  })

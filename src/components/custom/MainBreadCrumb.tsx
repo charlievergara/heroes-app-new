@@ -3,7 +3,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { Link } from 'react-router'
@@ -18,7 +17,7 @@ interface Props{
     breadcrumbs?:Breadcrumb[]
 }
 
-export const MainBreadCrumb = ({currentPage, breadcrumbs = []}:Props) => {
+export const MainBreadCrumb = ({breadcrumbs = []}:Props) => {
   return (
     <Breadcrumb className="my-5">
       <BreadcrumbList>
