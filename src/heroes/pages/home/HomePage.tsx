@@ -21,14 +21,16 @@ export const HomePage= () => {
 
   const {favoriteCount, favorites} = useContext(FavoriteHeroContext)
 
+  console.log(searchParams.get('tab'))
   const activeTab = (searchParams.get('tab') ? searchParams.get('tab') : 'all') as string
   const page = (searchParams.get('page') ? searchParams.get('page') : '1') as string
   const limit = (searchParams.get('limit') ? searchParams.get('limit') : '6') as string
   const category = (searchParams.get('category') ? searchParams.get('category') : 'all') as string
 
   const selectedTab = useMemo(() => {
-    return validTabs.includes(activeTab) ? activeTab : 'all'
-  }, [activeTab])
+    return validTabs.includes(activeTab) ? activeTab : 'dummy'
+  }, [activeTab]) 
+  console.log(selectedTab)
 
   const { data:heroesResponse } = usePaginatedHeroes(page, limit, category)
 

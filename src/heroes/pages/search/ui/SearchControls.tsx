@@ -27,9 +27,9 @@ export const SearchControls = () => {
     }
   }
 
-  const toggleHandler = (item:string)=>{
+  const toggleHandler = (showAdvanceFilters:string)=>{
 
-    if(toggleFilters === item) {
+    if(toggleFilters === showAdvanceFilters) {
 
       setSearchParams((prev)=>{
         prev.delete('toggle-filters')
@@ -63,6 +63,7 @@ export const SearchControls = () => {
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               <Input
+              data-testid="searchInput"
               ref={inputRef}
               defaultValue={search ?? ''}
               onKeyDown={handleKeyDown} 
@@ -94,7 +95,7 @@ export const SearchControls = () => {
 
            {/* Advanced Filters */}
 
-           <Accordion type="single" collapsible value={toggleFilters}>
+           <Accordion data-testid="accordion" type="single" collapsible value={toggleFilters}>
             <AccordionItem value="advanceFilters">
               {/* <AccordionTrigger>Is it accessible?</AccordionTrigger> */}
               <AccordionContent>

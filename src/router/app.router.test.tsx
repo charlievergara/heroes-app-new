@@ -69,4 +69,18 @@ describe('AppRouter', ()=>{
 
         expect(searchPage).toBeDefined()
       })
+     
+      test('should redirect from unknown routes', () => { 
+        const router = createMemoryRouter(appRouter.routes,{
+            initialEntries:['/unknown']
+        })
+
+        render(<RouterProvider router={router}></RouterProvider>)
+
+        expect(screen.getByTestId('home-page')).toBeDefined()
+
+        // const searchPage = await screen.findByTestId('search-page')
+
+        // expect(searchPage).toBeDefined()
+      })
 })

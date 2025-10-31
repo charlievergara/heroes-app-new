@@ -138,7 +138,5 @@ describe('HeroStats', () => {
 
         expect(favoriteContent.innerHTML).toContain('4')
         expect(favoriteCount.innerHTML).toBe('1')
-        
-        screen.debug(favoriteCount)
     })
  })

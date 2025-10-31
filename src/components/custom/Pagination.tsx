@@ -17,7 +17,6 @@ export const Pagination = ({totalPages}:Props) => {
 
   const handlePageChange = (page:number)=>{
 
-    console.log("Weeee")
     if(page < 1 || page > totalPages) return
 
     searchParams.set('page', page.toString())
@@ -29,7 +28,7 @@ export const Pagination = ({totalPages}:Props) => {
 
   return (
     <div className="flex items-center justify-center space-x-2">
-    <Button variant="outline" size="sm" disabled={page===1} onClick={()=>handlePageChange(page-1)}>
+    <Button data-testid="previous-button" variant="outline" size="sm" disabled={page===1} onClick={()=>handlePageChange(page-1)}>
       <ChevronLeft className="h-4 w-4" />
       Previous
     </Button>
@@ -52,7 +51,7 @@ export const Pagination = ({totalPages}:Props) => {
       <MoreHorizontal className="h-4 w-4" />
     </Button> */}
 
-    <Button disabled={page === totalPages} variant="outline" size="sm" onClick={()=>handlePageChange(page+1)}>
+    <Button data-testid="next-button" disabled={page === totalPages} variant="outline" size="sm" onClick={()=>handlePageChange(page+1)}>
       Next
       <ChevronRight className="h-4 w-4" />
     </Button>
